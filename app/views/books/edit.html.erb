@@ -4,8 +4,13 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		<h1>Editing Book</h1>
+  		 <% if @book.errors.any? %>
+       <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
+       <% @book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+       <% end %>
+       <% end %>
 
-  		<form action="/books/8732" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="EXtiUxRHu16aIiPnPt1B/lwtHlaE5e5y6AvlFVeBrNW6jk1sfijJFB1azPSka8eRpAiur+xvx7YKHCKtUqVCuQ==">
   <%= form_with model:@book, local:true do |f| %>
   <div class="form-group">
     <label for="book_title">Title</label>
