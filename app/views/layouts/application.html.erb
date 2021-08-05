@@ -23,8 +23,8 @@
 
           <% if user_signed_in? %>
           <li><%= link_to "Home", user_path(current_user), class: 'fas fa-home nav-link text-light' %></li>
-          <li><%= link_to "users", users_path, class: 'fas fa-sign-out-alt nav-link text-light' %></li>
-          <li><%= link_to "books", books_path, class: 'fas fa-book-open nav-link text-light' %></li>
+          <li><%= link_to "Users", users_path, class: 'fas fa-users nav-link text-light' %></li>
+          <li><%= link_to "Books", books_path, class: 'fas fa-book-open nav-link text-light' %></li>
           <li><%= link_to "logout", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %></li>
           <% else %>
           <li><%= link_to "Home", root_path, class: 'fas fa-home nav-link text-light' %></li>
@@ -39,12 +39,13 @@
     </div>
   </nav>
 </header>
-       <% flash.each do |key, value| %>
+
+  </body>
+
+  <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}" ) %>
   <% end %>
-
     <%= yield %>
-  </body>
   <footer>
   <div class="container mt-5">
   	<div class="row">
